@@ -1,0 +1,44 @@
+{
+    "scale": {
+        "label": "Scale",
+        "type": "range",
+        "typeOptions": {
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "defaultValue": 1
+        }
+    },
+    "rotate": {
+        "label": "Rotation",
+        "type": "select",
+        "typeOptions": {
+            "options": [
+                {
+                    "value": "N",
+                    "label": " Normal (not rotated)",
+                    "selected": true
+                },
+                {
+                    "value": "R",
+                    "label": "Clockwise 90 degree rotation"
+                },
+                {
+                    "value": "L",
+                    "label": "Counter-clockwise 90 degree rotation"
+                },
+                {
+                    "value": "I",
+                    "label": "Inverted 180 degree rotation"
+                }
+            ]
+        }
+    },
+    "monochrome": {
+        "label": "Monochrome",
+        "type": "boolean",
+        "typeOptions": {
+            "defaultValue": false
+        }
+    }
+}

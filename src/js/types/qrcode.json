@@ -1,0 +1,44 @@
+{
+    "name": "Qr Code",
+    "options": {
+        "text": {
+            "label": "Texte",
+            "type": "text",
+            "typeOptions": {
+                "supportedData": "ASCII_extended"
+            }
+        },
+        "eclevel": {
+            "label": "Ec Level",
+            "type": "select",
+            "typeOptions": {
+                "options": [
+                    {
+                        "value": "L",
+                        "label": "Low"
+                    },
+                    {
+                        "value": "M",
+                        "label": "Medium (default)",
+                        "selected": true
+                    },
+                    {
+                        "value": "Q",
+                        "label": "Quality"
+                    },
+                    {
+                        "value": "H",
+                        "label": "High"
+                    }
+                ]
+            }
+        },
+        "fixedeclevel": {
+            "label": "Ec Level Fixe (forcé)",
+            "type": "boolean",
+            "typeOptions": {
+                "defaultValue": false
+            }
+        }
+    }
+}

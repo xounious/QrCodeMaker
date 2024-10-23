@@ -1,0 +1,19 @@
+{
+    "name": "Qr Code",
+    "options": {
+        "text": {
+            "label": "Texte",
+            "type": "text",
+            "typeOptions": {
+                "supportedData": "ASCII_extended"
+            }
+        },
+        "fixedeclevel": {
+            "label": "Ec Level Fixe (forcé)",
+            "type": "boolean",
+            "typeOptions": {
+                "defaultValue": false
+            }
+        }
+    }
+}
