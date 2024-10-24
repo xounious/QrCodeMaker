@@ -1,30 +1,37 @@
 export default class OptionsForm {
     constructor(codeType) {
-        this.codeType = codeType;
+        this.codeType = codeType || null;
         this.options;
     }
-    async getOptionsForm() {
+    async getOptionsForm(containerId) {
         if (this.codeType) {
             this.options = await this.codeType.getOptions();
         } else {
             let response = await fetch("./js/defaultOptions.json");
             this.options = await response.json();
         }
-        this.createForm();
+        this.createForm(containerId);
     }
-    createForm() {
-        let form = document.createElement("form");
+    createForm(containerId) {
+        document.getElementById(containerId).innerHTML = "";
         for (const inputName in this.options) {
             let input = this.options[inputName];
             let type = input.type;
-            form.appendChild(this.createFormElement(inputName));
+            document
+                .getElementById(containerId)
+                .appendChild(this.createFormElement(inputName));
         }
-        document.querySelector("#containerForms").appendChild(form);
+        // enleve la border bottom du dernier label
+        document
+            .getElementById(containerId)
+            .lastElementChild.classList.remove("border-b");
     }
     createInputText(name, options) {
         let input = document.createElement("input");
         input.type = "text";
         input.id = name;
+        input.placeholder = "https://example.com";
+        input.classList = "w-1/2 bg-blue-800 text-blue-50 p-3 px-5 rounded-md";
         input.required = true;
         input.pattern = this["getPattern" + options.supportedData]();
         return input;
@@ -36,6 +43,7 @@ export default class OptionsForm {
     createInputSelect(name, options) {
         let select = document.createElement("select");
         select.id = name;
+        select.classList = "w-1/2 bg-blue-800 text-blue-50 p-3 px-5 rounded-md";
         options.options.forEach((options) => {
             let option = document.createElement("option");
             option.value = options.value;
@@ -64,8 +72,13 @@ export default class OptionsForm {
     }
     createFormElement(inputName) {
         let label = document.createElement("label");
-        label.innerText = this.options[inputName].label;
+        label.innerHTML =
+            "<span class='w-1/2 text-right'>" +
+            this.options[inputName].label +
+            "</span>";
         label.for = name;
+        label.classList =
+            "flex1 flex flex-row space-x-4 text-blue-50 items-center border-b border-blue-50 py-2";
         label.appendChild(
             this[
                 "createInput" +
@@ -73,8 +86,6 @@ export default class OptionsForm {
                     this.options[inputName].type.slice(1)
             ](inputName, this.options[inputName].typeOptions)
         );
-        let br = document.createElement("br");
-        label.appendChild(br);
         return label;
     }
 }
