@@ -1,4 +1,5 @@
 {
     "qrcode": "Qr Code",
-    "azteccode": "Aztec Code"
+    "azteccode": "Aztec Code",
+    "ean13": "EAN-13"
 }

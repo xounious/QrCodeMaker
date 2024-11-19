@@ -1,0 +1,27 @@
+{
+    "name": "Qr Code",
+    "options": {
+        "text": {
+            "label": "Code",
+            "type": "text",
+            "typeOptions": {
+                "supportedData": "numbers",
+                "nAuthaurizedChars": [12, 15]
+            }
+        },
+        "includetext": {
+            "label": "Inclure le texte",
+            "type": "boolean",
+            "typeOptions": {
+                "defaultValue": true
+            }
+        },
+        "guardwithespace": {
+            "label": "Affichage des marques de garde d'espaces blancs",
+            "type": "boolean",
+            "typeOptions": {
+                "defaultValue": false
+            }
+        }
+    }
+}

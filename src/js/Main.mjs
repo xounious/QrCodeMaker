@@ -14,7 +14,7 @@ export default class Main {
         this.display();
     }
     display() {
-        fetch("./js/codeTypes.json")
+        fetch("./src/js/codeTypes.json")
             .then((response) => response.json())
             .then((codeTypes) => {
                 this.codeTypes = codeTypes;
@@ -54,6 +54,8 @@ export default class Main {
         });
         this.addSubmitButton(this.codeTypes[codeTypeName]);
     }
+
+    // ajouter la selection (url, SMS, Vcard)
     addSubmitButton(codeName) {
         let submit = document.createElement("button");
         submit.innerText = "Generate " + codeName;

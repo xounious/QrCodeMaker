@@ -7,13 +7,6 @@
             "typeOptions": {
                 "supportedData": "ASCII_extended"
             }
-        },
-        "fixedeclevel": {
-            "label": "Ec Level Fixe (forcé)",
-            "type": "boolean",
-            "typeOptions": {
-                "defaultValue": false
-            }
         }
     }
 }

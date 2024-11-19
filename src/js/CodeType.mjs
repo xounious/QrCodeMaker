@@ -6,7 +6,7 @@ export default class CodeType {
     }
     static async getAllTypes() {
         try {
-            let response = await fetch("./js/codes.json");
+            let response = await fetch("./src/js/codes.json");
             let data = await response.json();
             let codeTypes = [];
             for (let codeType in data.types) {
@@ -20,7 +20,7 @@ export default class CodeType {
     }
     async getOptions() {
         try {
-            let response = await fetch("./js/types/" + this.codeTypeName + ".json");
+            let response = await fetch("./src/js/types/" + this.codeTypeName + ".json");
             let options = await response.json();
             this.options = options.options;
             return this.options;
@@ -54,6 +54,7 @@ export default class CodeType {
         let option = "bcid=" + document.getElementById("codeType").value;
         for (let optionName in options) {
             let type = options[optionName].type;
+
             option += this["getUrlParamOf" + type.charAt(0).toUpperCase() + type.slice(1)](optionName);
         }
         let url = encodeURI("https://api-bwipjs.metafloor.com/?" + option);
